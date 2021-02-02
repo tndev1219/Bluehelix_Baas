@@ -50,7 +50,7 @@ def add_address():
         "POST", "/api/v1/address/add", timestamp, data)
     sign_msg = sign_msg.encode("utf-8")
 
-    signing_key = ed25519.SigningKey(private_key, "", "hex")
+    signing_key = ed25519.SigningKey(private_key.encode("utf-8"), encoding="hex")
     signature = signing_key.sign(sign_msg)
     print("signature = ", hexlify(signature))
 
