@@ -6,6 +6,7 @@ import ed25519
 import base64
 
 domain     = "https://baas.bluehelix.com"
+public_key = "6407b297a07c352a51ea5bccf8bf7d57c0852a482a81c8bb75386542bd3fbfc9"
 private_key = "f75b4493a3e689291c92f243825170c2c30c256fdfe22ea35b5150280b6bbe92"
 chain      = "BTCV-7206"
 api_key     = "2e299a9e36d34bb99d7b5e50b1d8fdfe"
@@ -61,13 +62,15 @@ def add_address():
         "Content-Type": "application/json"
     }
 
-    res = requests.post(
-        url=domain+"/api/v1/address/add",
-        data=json.dumps(data), 
-        headers=headers)
+    try:
+        res = requests.post(url=domain+"/api/v1/address/add", data=json.dumps(data),  headers=headers)
+        print('-------------------------')
+        print(res.text)
+        print('-------------------------')
+    except ValueError:
+        print('-- add_address error --', ValueError)
 
-    print(res.text)
-
+    
 def create_key():
     signing_key, verifying_key = ed25519.create_keypair()
     print("the private key is", signing_key.to_ascii(encoding="hex"))
