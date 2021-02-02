@@ -48,6 +48,7 @@ def add_address():
     }
     sign_msg = create_sign_msg(
         "POST", "/api/v1/address/add", timestamp, data)
+    sign_msg = sign_msg.encode("utf-8")
 
     signing_key = ed25519.SigningKey(private_key, "", "hex")
     signature = signing_key.sign(sign_msg)
@@ -98,5 +99,5 @@ def create_sign_msg(method,url, timestamp, body):
         
 
 # create_key()
-get_address_count()
-# add_address()
+# get_address_count()
+add_address()
