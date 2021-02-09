@@ -6,10 +6,11 @@ import ed25519
 import base64
 
 domain     = "https://baas.bluehelix.com"
-public_key = "6407b297a07c352a51ea5bccf8bf7d57c0852a482a81c8bb75386542bd3fbfc9"
-private_key = "f75b4493a3e689291c92f243825170c2c30c256fdfe22ea35b5150280b6bbe92"
+public_key = "00141f6ab8d58541d1e38550a9fd8b3210bb50f808b5"
+private_key = "L4emjQfnZfXcxmBeEoZqv7qJVWZ4uH9a3Pqe8dAVVshuRvrX1q2i"
 chain      = "BTCV-7206"
 api_key     = "2e299a9e36d34bb99d7b5e50b1d8fdfe"
+wallet_address = "royale1q4ruqmg4w0qrfk57j40zctze8c2c743xxffxg7y"
 
 def get_address_count():
     timestamp = str(int(time.time() * 1000))
@@ -102,5 +103,5 @@ def create_sign_msg(method,url, timestamp, body):
         
 
 # create_key()
-# get_address_count()
-add_address()
+get_address_count()
+# add_address()
